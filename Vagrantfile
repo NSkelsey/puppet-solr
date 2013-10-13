@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise32"
+  config.vm.box = "precise64"
   config.vm.network :forwarded_port, guest: 8983, host: 8983
   config.vm.network :forwarded_port, guest: 2181, host: 2181
 
@@ -73,10 +73,9 @@ Vagrant.configure("2") do |config|
   # #               Managed by Puppet.\n"
   # # }
   #
-  # config.vm.provision :puppet do |puppet|
-  #   puppet.manifests_path = "manifests"
-  #   puppet.manifest_file  = "init.pp"
-  # end
+   config.vm.provision :puppet do |puppet|
+     puppet.manifests_path = "manifests"
+   end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
